@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Доставки</title>
+</head>
+<body>
+{% if object_list %}
+    {% for item in object_list %}
+        <h1>Доставка № {{ item.id }}:</h1>
+        <p>Название товара - {{ item.product_name }}</p>
+        <p>Тип товара - {{ item.product_type }}</p>
+        <p>Дата доставки - {{ item.delivery_date }}</p>
+        <p>Адрес доставки - {{ item.point }} </p>
+    {% endfor %}
+{% else %}
+    <h1>В данный момент доставок нет!</h1>
+{% endif %}
+<br>
+<a href="{% url 'delivery:delivery_create' %}">Создать доставку</a>
+</body>
+</html>
