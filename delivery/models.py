@@ -22,7 +22,7 @@ class Delivery(models.Model):
     product_name = models.CharField(max_length=64, verbose_name='название товара')
     product_type = models.ForeignKey(ProductType, on_delete=models.SET, verbose_name='тип товара')
     delivery_date = models.DateField(blank=True, verbose_name='дата доставки')
-    file = models.FileField(upload_to='delivery_files', verbose_name='файл')
+    file = models.FileField(upload_to='delivery_files', verbose_name='файл', blank=True)
     point = models.ForeignKey(DeliveryPoint, on_delete=models.SET, verbose_name='пункт выдачи')
 
     def __str__(self):
